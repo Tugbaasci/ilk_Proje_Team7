@@ -6,50 +6,40 @@ import pages.UserDashboard;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class UserStory07_tc01 {
+public class US_07 extends TestBaseRapor {
 
     @Test
     public void US07_TC01() {
-        /*
-         1-Go to 1-https://qa.smartcardlink.com/
-         2-Click the "sign in" button in the header section.
-         3-Enter valid e-mail and valid password.
-         4-Click on the "log in" button.
-         5-Confirm that the "Dashboard" section is visible on the page that opens.
-         6-"VCards", "Enguiries", "Appointments", "Virtual Backrounds", "Settings" are confirmed to be visible.
-         7-Close the page
-         */
+        extentTest = extentReports.createTest("UserStory07_TestCase1:Dashboard and dashboard panel items test ",
+                "As a user I shuold able to reach the dashboard page and that the items on the page are displayable");
 
-        //1-Go to 1-https://qa.smartcardlink.com/
         Driver.getDriver().get(ConfigReader.getProperty("smartCardLinkUrl"));
+        extentTest.info("User navigate to the smartcardlink home webpage");
         UserDashboard userDashboard=new UserDashboard();
-
-        //2-Header kismindaki sign in butonuna tiklanir.
-        userDashboard.SignInButton.click();
-
-        //3-Gecerli e-mail ve gecerli password girilir.
+        userDashboard.signInButton.click();
+        extentTest.info("User clicks the signin button");
+        userDashboard.emailButton.sendKeys(ConfigReader.getProperty("user_username") );
+        extentTest.info("User types a valid email adress to the email box");
+        userDashboard.passwordButton.sendKeys(ConfigReader.getProperty("user_userPassword"));
+        extentTest.info("User types a valid password to the password box");
+        userDashboard.loginButton.click();
+        extentTest.info("User clicks the login button");
         ReusableMethods.wait(2);
-
-        userDashboard.EmailButton.sendKeys(ConfigReader.getProperty("user_username") );
-        userDashboard.PasswordButton.sendKeys(ConfigReader.getProperty("user_userPassword"));
-        ReusableMethods.wait(2);
-
-        //4-Login butonuna tiklanir.
-        userDashboard.LoginButton.click();
-        ReusableMethods.wait(2);
-
-        //5-Acilan sayfada dashboard bolumunun goruntulenebilir oldugu dogrulanir.
-        Assert.assertTrue(userDashboard.DashboardElement.isDisplayed());
-
-        //6-VCards,Enguiries,Appointments,Vitual Backrounds,Settings ogelerinin ulasilabilir oldugu dogrulanir ve test edilir.
-         Assert.assertTrue(userDashboard.VcardsElement.isEnabled());
-         Assert.assertTrue(userDashboard.EnquiriesElement.isEnabled());
-         Assert.assertTrue(userDashboard.AppointmentsElement.isEnabled());
-         Assert.assertTrue(userDashboard.VirtualBackroundsElement.isEnabled());
-         Assert.assertTrue(userDashboard.SettingsElement.isEnabled());
-
-         //7-Sayfa kapatilir
+        Assert.assertTrue(userDashboard.dashboardElement.isDisplayed());
+        extentTest.pass("User validates to access to the Dashboard page");
+        Assert.assertTrue(userDashboard.vcardsElement.isEnabled());
+        extentTest.pass("User validates to access to the Vcards Element ");
+        Assert.assertTrue(userDashboard.enquiriesElement.isEnabled());
+        extentTest.pass("User validates to access to the Enquiries Element");
+        Assert.assertTrue(userDashboard.appointmentsElement.isEnabled());
+        extentTest.pass("User validates to access to the Appointment Element");
+        Assert.assertTrue(userDashboard.virtualBackroundsElement.isEnabled());
+        extentTest.pass("User validates to access to the Virtual Backrounds Element");
+        Assert.assertTrue(userDashboard.settingsElement.isEnabled());
         Driver.closeDriver();
+        extentTest.info("User closes the browser");
+
     }
 }
