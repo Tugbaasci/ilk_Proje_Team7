@@ -2,7 +2,7 @@
 ### Örnek Read Me Dosyası
 ### 
 ***
-1. Her QA kendi Pacage klasorunde calisir
+1. Her QA kendi Package klasorunde calisir
 2. Test filelerin isimlendirmesi US_001_021_034.java seklinde olmali
 
 3. Locate alinan element nerenin elementi oldugu aciklama satiri ile aciklanmali
@@ -22,8 +22,8 @@
     * bu şekilde pull işlemini gerçekleştirmiş oluyoruz
 
 3. Yaptigi degisiklikleri kucuk commitlerle kendi branchinda saklar. Burada tavsiye edilen sadece sizin yaptiginiz degisikliklerin eklenmesidir.
-    * 'git add . kesinlikle kullanilMAMAli'
-    * 'git add (degisiklik yapilan yerin  dosya yolu yani "pat from content root" u)
+    * 'git add .  kesinlikle kullanilMAMAli'
+    * 'git add (deggisiklik yapilan yerin  dosya yolu yani "pat from content root" u)
     * 'git commit -m "İsim/tarih/Yapilan Degisiklikler icin bir mesaj yazilir."'
       Örn >>> git commit -m "<Kendi isminiz>/02.07/loginClassEklendi"
 4. git push
@@ -35,7 +35,7 @@
 7. Merge request islemi team lead tarfindan gerceklestirilir
 
 
-### Isimlendirmelerde dikaat edilecekler
+### Isimlendirmelerde dikkat edilecekler
 ***
 | Element Türü   | Variable name |
 |----------------|--------------|
