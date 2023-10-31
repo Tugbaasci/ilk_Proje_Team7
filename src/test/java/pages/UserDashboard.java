@@ -165,7 +165,6 @@ public class UserDashboard {
     public  WebElement cashPayButton;
 
 
-    public UserDashboard(){PageFactory.initElements(Driver.getDriver(),this);}
 
     //Login olunca ksisiel fptnun yanindaki acilir menu;
     @FindBy(xpath = "//button[@id='dropdownMenuButton1']")
