@@ -20,8 +20,11 @@ public class ConfigReader {
             properties=new Properties();
 
 
+
+
             properties.load(fis);
             //fisin okudugu bilgileri properties e yukledi
+
 
 
         } catch (IOException e) {
