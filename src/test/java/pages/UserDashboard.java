@@ -174,6 +174,14 @@ public class UserDashboard {
     @FindBy(id = "nav-header")
     public WebElement headerDashboard;
 
+    //Homepage>> SignInButton>>PasswordButton>>LoginButton>>UserNameButton>>AccountSettings
+    @FindBy(xpath = "//a[@class='dropdown-item text-gray-900']")
+    public  WebElement accountSettingsElement;
+
+    //Homepage>> SignInButton>>PasswordButton>>LoginButton>>UserNameButton>>AccountSettings>>ProfileDetails
+    @FindBy(xpath = "(//a[normalize-space()='Profile Details'])[1]")
+    public  WebElement profileDetailsElement;
+
 }
 
 
