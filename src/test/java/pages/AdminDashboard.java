@@ -5,6 +5,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+
+public class AdminDashboard {
+    public AdminDashboard() {
+
+        PageFactory.initElements(Driver.getDriver(), this);
+
+
+
+    }
+
+
+    }
+
+
 import java.util.List;
 
 public class AdminDashboard {
@@ -76,3 +90,4 @@ public class AdminDashboard {
     @FindBy(xpath = "//tr//td[5]")
     public List<WebElement> actionTransactionsListElement;
 }
+
