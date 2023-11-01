@@ -11,7 +11,7 @@ import java.time.Duration;
 
 public class DriverCross {
 
-    private static WebDriver driver;
+    public static WebDriver driver;
     private DriverCross(){
 
     }
@@ -19,7 +19,7 @@ public class DriverCross {
     public static WebDriver getDriver(String browser){
 
 
-        browser = browser==null ? ConfigReader.getProperty("browser") : browser ;
+        browser = browser==null ?  ConfigReader.getProperty("browser") : browser;
         // bu satir bizim emniyet subabimiz
         // eger parametre olarak null gonderilirse
         // configuration.properties'deki browser degerini alacak

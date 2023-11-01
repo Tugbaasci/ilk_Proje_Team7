@@ -3,6 +3,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
 
 import java.io.File;
 import java.io.IOException;
@@ -357,7 +358,26 @@ public class ReusableMethods {
 
     public static void waitAndClickLocationText(WebElement element, String value) {
         Driver.getDriver().findElement(By.xpath("//*[text()='" + value + "']")).click();
+
+
     }
+
+    public void warningMessagesCheck (String expectedWarningMessage , String actualWarningMessage) {
+        Assert.assertEquals(actualWarningMessage,expectedWarningMessage);
+
+    }
+
+
+
+    public static void jsScrollBy(int scrollBy){
+        JavascriptExecutor js=(JavascriptExecutor)Driver.getDriver();
+        js.executeScript("window.scrollBy(0,"+scrollBy+")");
+    }
+
+    public static void jsScrollBy(WebElement scrollBy){
+        JavascriptExecutor js=(JavascriptExecutor)Driver.getDriver();
+        js.executeScript("window.scrollTo(0, arguments[0].getBoundingClientRect().top)", scrollBy); }
+
 
 }
 
