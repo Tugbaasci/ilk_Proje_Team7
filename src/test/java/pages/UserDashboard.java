@@ -161,7 +161,8 @@ public class UserDashboard {
 
 
     //cashPay
-    @FindBy(xpath = "//button[@type='submit']")
+  //  @FindBy(xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[normalize-space()='Cash Pay']")
     public  WebElement cashPayButton;
 
 
