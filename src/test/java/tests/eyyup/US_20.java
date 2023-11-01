@@ -46,7 +46,7 @@ public class US_20 extends TestBaseRapor {
 
 
         List<WebElement> kullaniciAbonelikDurumlari = Driver.getDriver().findElements(By.xpath("//td[@class='text-center']"));
-        extentTest.info("kullanicilarin hesap durumunu     gosterir");
+        extentTest.info("kullanicilarin hesap durumunu gosterir");
 
         for (WebElement each : kullaniciAbonelikDurumlari
         ) {
