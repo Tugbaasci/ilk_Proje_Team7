@@ -84,6 +84,7 @@ public class HomePage {
     public WebElement signinButton;
 
     // bulent
+    // homepage footer bolumundeki simgelerin ve linklerin locate leri
     @FindBy(xpath = "//a[@title='Facebook']")
     public WebElement footerFacebookIcon;
     @FindBy(xpath = "//a[@title='Twitter']")
@@ -100,6 +101,7 @@ public class HomePage {
     public WebElement footerPrivacyPolicy;
     @FindBy (linkText = "FAQ")
     public WebElement footerFAQ;
+    // footer bölümündeki likler ile acilan sayfalarin sayfa ici metinlerinin locate i
     @FindBy (xpath = "//h1[text()='Terms & Conditions']")
     public WebElement termsConditionsWE;
     @FindBy(xpath = "//h1[text()='Privacy Policy']")
