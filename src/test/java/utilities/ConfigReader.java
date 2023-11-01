@@ -12,7 +12,7 @@ public class   ConfigReader {
 
         String dosyaYolu= "configuration.properties";
 
-        try {
+
 
       try {
 
