@@ -138,10 +138,12 @@ public class US_15 extends TestBaseRapor {
         extentTest.info("User selects Manually ");
         userDashboard.addYourNotes.sendKeys(ConfigReader.getProperty("addyourNotes"));
         extentTest.info("User sends notes ");
-        userDashboard.cashPayButton.click();
+        userDashboard.cashPayButton.submit();
         extentTest.info("User clicks  Cash pay button");
         // 11-Confirm that the name of the upgraded plan is displayed on the page that opens.
-
+        reusableMethods.warningMessagesCheck("You subscribed this plan successfully but wait for confirmation from Admin"
+                ,userDashboard.warningMessage.getText());
+        extentTest.pass("User confirms that payment can be made with manually");
 
     }
 }
