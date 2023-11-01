@@ -122,6 +122,7 @@ public class ReusableMethods {
 
     /**
      * Performs double click action on an element
+     *
      * @param element
      */
     public static void doubleClick(WebElement element) {
@@ -146,6 +147,7 @@ public class ReusableMethods {
 
     /**
      * Selects a random value from a dropdown list and returns the selected Web Element
+     *
      * @param select
      * @return
      */
@@ -365,6 +367,8 @@ public class ReusableMethods {
 
     }
 
+
+
     public static void jsScrollBy(int scrollBy){
         JavascriptExecutor js=(JavascriptExecutor)Driver.getDriver();
         js.executeScript("window.scrollBy(0,"+scrollBy+")");
@@ -373,6 +377,7 @@ public class ReusableMethods {
     public static void jsScrollBy(WebElement scrollBy){
         JavascriptExecutor js=(JavascriptExecutor)Driver.getDriver();
         js.executeScript("window.scrollTo(0, arguments[0].getBoundingClientRect().top)", scrollBy); }
+
 
 }
 
