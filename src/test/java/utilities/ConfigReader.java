@@ -1,15 +1,19 @@
 package utilities;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigReader {
+public class   ConfigReader {
 
     static Properties properties;
 
     static {
 
-        String dosyaYolu= "src/configuration.properties";
+        String dosyaYolu= "configuration.properties";
+
+        try {
+
       try {
 
             FileInputStream fis= new FileInputStream(dosyaYolu);
