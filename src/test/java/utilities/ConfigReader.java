@@ -8,11 +8,22 @@ public class ConfigReader {
     public static Properties properties;
 
     static {
-        String dosyaYolu="configuration.properties";
+
+
+        String dosyaYolu= "configuration.properties";
+
+
+
         try {
             FileInputStream fis=new FileInputStream(dosyaYolu);
             //fis dosya yolunu tanimladigimiz configuration.properties dosyasini okudu
             properties=new Properties();
+
+
+
+
+            properties.load(fis);
+            //fisin okudugu bilgileri properties e yukledi
 
 
 
