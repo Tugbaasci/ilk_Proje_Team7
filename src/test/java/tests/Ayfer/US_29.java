@@ -1,6 +1,5 @@
 package tests.Ayfer;
 
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AdminDashboard;
@@ -8,10 +7,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
-
-import java.util.List;
 
 public class US_29 extends TestBaseRapor {
     @Test

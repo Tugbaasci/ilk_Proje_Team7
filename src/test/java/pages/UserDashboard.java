@@ -1,11 +1,11 @@
 package pages;
 
-import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import java.util.List;
 
 public class UserDashboard {
 
@@ -262,6 +262,240 @@ public class UserDashboard {
     //Homepage>> SignInButton>>PasswordButton>>LoginButton>>UserNameButton>>AccountSettings>>ProfileDetails
     @FindBy(xpath = "(//a[normalize-space()='Profile Details'])[1]")
     public  WebElement profileDetailsElement;
+    //Tugba Vcards>> new vcard butonu
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement newVcardButton;
+
+    //Tugba Card url text kutusu
+    @FindBy(id = "vcard-url-alias")
+    public WebElement urlAliasTextBox;
+
+    //Tugba Card name text kutusu
+    @FindBy(xpath = "//*[@id='name']")
+    public WebElement cardNameTextBox;
+
+    //Tugba Occupation text kutusu
+    @FindBy(id = "occupation")
+    public WebElement occupationTextBox;
+
+    //Tugba new vcard save butonu
+    @FindBy(id = "vcardSaveBtn")
+    public WebElement newVcardSaveButton;
+
+    //Tugba qr_code islem butonu
+    @FindBy(xpath = "(//*[@data-icon='qrcode'])[1]")
+    public WebElement qrCodeButton;
+
+    //Tugba card download butonu
+    @FindBy(xpath = "(//a[@class='btn px-1 text-info fs-3'])[1]")
+    public WebElement downloadVCardButton;
+
+    //Tugba Enquiries butonu
+    @FindBy(xpath = "(//a[@class='btn px-1 text-info fs-3'])[2]")
+    public WebElement enquiriesButton;
+
+    //Tugba edit butonu
+    @FindBy(xpath = "(//a[@class='btn px-1 text-primary fs-3'])[1]")
+    public WebElement editButton;
+
+    //Tugba delete butonu
+    @FindBy(xpath = "(//a[@class='btn px-1 text-danger fs-3 vcard_delete-btn'])[1]")
+    public WebElement deleteButton;
+
+    //Tugba duplicate butonu
+    @FindBy(xpath = "(//a[@class='duplicate-vcard-btn btn px-1 text-secondary fs-3'])[1]")
+    public WebElement duplicateButton;
+
+    //Tugba appointments link under edit vcard
+    @FindBy(xpath = "(//a[@class='nav-link p-4 '])[7]")
+    public WebElement appointmentsUnderEditVcard;
+
+    //Tugba appointment monday checkbox
+    @FindBy(id = "chkShortWeekDay_MON")
+    public WebElement appointmentMon;
+
+    //Tugba appointments save butonu;
+    @FindBy(xpath = "//button[@class='btn btn-primary me-3']")
+    public WebElement appointmentSaveButton;
+
+    //Tugba appointments tablodaki bilgileri listele
+    @FindBy(xpath = "//tr//td")
+    public List<WebElement> appointmentTableList;
+
+    //Dashboard linki user hesabinda
+    @FindBy(xpath = "(//span[@class='aside-menu-title'])[1]")
+    public WebElement dashboardLink;
+
+    //Tugba Vcard linki user hesabinda
+    @FindBy(xpath = "(//span[@class='aside-menu-title'])[2]")
+    public WebElement vcardLink;
+
+    //renkli gosterim kutularindan vcard kutusu sayi yazi elementi
+    @FindBy(xpath = "(//h2[@class='fs-1-xxl fw-bolder text-white'])[1]")
+    public WebElement vcardCountLabel;
+
+    //Tugba appointments link sol yanda
+    @FindBy(xpath = "(//a[@class='nav-link d-flex align-items-center py-3'])[4]")
+    public WebElement appointmentsLinkLeft;
+
+    //Tugba hesap isminden acilan menudeki manage subsription linki;
+    @FindBy(xpath = "(//a[@class='dropdown-item text-gray-900'])[2]")
+    public WebElement manageSubscriptionOption;
+
+    //Tugba manage subscription upgrade plan butonu
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement upGradeButton;
+
+    //Tugba unlimited yazi elementi
+    @FindBy(xpath = "(//a[@class='nav-link'])[2]")
+    public WebElement unlimitedLabel;
+
+    //Tugba unlimited switch butonu
+    @FindBy(xpath = "(//a[@class='btn btn-primary rounded-pill mx-auto '])[4]")
+    public WebElement unlimitedSwitchButton;
+
+    //Tugba select payment
+    @FindBy(xpath = "(//span[@class='select2-selection select2-selection--single'])[1]")
+    public WebElement selectPaymentElementi;
+
+    //Tugba Stripe odeme
+    @FindBy(xpath = "//li[text()='Stripe']")
+    public WebElement stripePaymentElementi;
+
+    //Tugba odeme seceneginin altindaki switch butonu
+    @FindBy(xpath = "(//button[@class='btn btn-primary rounded-pill mx-auto d-block makePayment'])[2]")
+    public WebElement switchButtonUnderSelect;
+
+    //Tugba kredikarti numara textbox
+    @FindBy(xpath = "//input[@id='cardNumber']")
+    public WebElement creditCardNumber;
+
+    //Tugba kredi karti kullanim tarihi
+    @FindBy(xpath = "//input[@id='cardExpiry']")
+    public WebElement cardDate;
+    //Tugba kredi karti CVC numarasi
+    @FindBy(xpath = "//input[@id='cardCvc']")
+    public WebElement cardCVCnumber;
+
+    //Tugba kredi karti sahibi adi textbox
+    @FindBy(xpath = "//input[@id='billingName']")
+    public WebElement cardHolderName;
+
+    //Tugba kredi karti bolumundeki ode butonu
+    @FindBy(xpath = "//div[@class='SubmitButton-IconContainer']")
+    public WebElement creditCardPay;
+
+    //Tugba back to subscription elmenti
+    @FindBy(xpath = "//a[@class='btn mt-5 btn-back']")
+    public WebElement backToSubscription;
+
+    //Tugba Affiliations linki solda
+    @FindBy (xpath = "(//a[@class='nav-link d-flex align-items-center py-3'])[6]")
+    public WebElement AffiliationsLink;
+
+    //Tugba Affiliations >> toplam tutar sayi
+    @FindBy(xpath = "(//div[@class='text-end text-white'])[1]")
+    public WebElement totalAmountCount;
+
+    //Tugba Affiliations >> guncel tutar
+    @FindBy(xpath = "(//div[@class='text-end text-white'])[2]")
+    public WebElement currentAmountCount;
+
+    //Tugba Affiliations >> copy link
+    @FindBy (id = "copyLinkBtn")
+    public WebElement copyLinkButton;
+
+    //Tugba Affiliations >> send invite butonu
+    @FindBy(xpath = "//a[@class='btn btn-primary sendInviteBtn']")
+    public WebElement sendInviteButton;
+
+    //Tugba Send invite >> send email
+    @FindBy(xpath = "(//input[@type='email'])[2]")
+    public WebElement sendInviteEmailTextBox;
+
+    //Tugba Send invite >> send butonu
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    public WebElement sendInviteSendEmailButton;
+
+    //Tugba Affiliations >> withdrawal
+    @FindBy(xpath = "//button[@id='withdrawal-tab']")
+    public WebElement withdrawalLink;
+
+    //Tugba Affiliations >> withdrawal >> withdraw amount
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement withdrawAmount;
+
+    //Tugba Affiliations >> withdrawal >> withdraw amount >> amount
+    @FindBy(xpath = "//input[@id='withdrawAmount']")
+    public WebElement withdrawAmountEnter;
+
+    //Tugba Affiliations >> withdrawl >> withdraw amount >> verify paypal email
+    @FindBy(xpath = "//input[@id='paypalEmail']")
+    public WebElement paypalEmail;
+
+    //Tugba Affiliations >> withdrawal >> withdraw amount >> save btn
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    public WebElement withdrawSaveBtn;
+
+    //Tugba Settings sol kosedeki link
+    @FindBy(xpath = "(//a[@class='nav-link d-flex align-items-center py-3'])[7]")
+    public WebElement settingsElementi;
+
+    //Tugba Settings >> paypal Email >> save
+    @FindBy(xpath = "//button[@id='userCredentialSettingBtn']")
+    public WebElement settingsSaveButton;
+
+    //Tugba >> user acilir menu sign out elementi
+    @FindBy(xpath = "//span[@class='dropdown-icon me-4 text-gray-600']/following-sibling::span[contains(text(),'Sign Out')]")
+    public WebElement signOutElementi;
+
+    //Tugba >> appointments tablosu
+    @FindBy(xpath = "//table[@class='table table-striped']")
+    public WebElement appointmentsTable;
+
+    //Tugba >> copy link url
+    @FindBy(xpath = "//input[@id='urlLink']")
+    public WebElement copyInviteUrl;
+
+    //Tugba >> Settings >> save btn
+    @FindBy(id = "userCredentialSettingBtn")
+    public WebElement SettingsSaveBtn;
+
+    //Tugba >> Settings >> select currency
+    @FindBy(xpath = "(//span[@class='selection'])[1]")
+    public WebElement selectCurrencyElementi;
+    //Settings >> select currency >> euro
+    @FindBy(id = "select2-userCurrencySettingId-result-fjis-2")
+    public WebElement currencyEuroElement;
+
+    //Tugba Affiliations >> withdrawal >> ilk siradaki approved elementi
+    @FindBy(xpath = "(//td[@class='whitespace-nowrap px-3 py-2 md:px-6 md:py-4 text-sm leading-5 text-gray-900 dark:text-white'][2])[8]")
+    public WebElement withdrawApprovedElement;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //busra
+    @FindBy(xpath = "//input[@id='editProfileFirstName'] ")
+    public  WebElement settingsNameElement;
+
+    @FindBy(xpath = "//*[@id=\"userProfileEditForm\"]/div[2]")
+    public  WebElement settingsSaveElement;
 
 
 }

@@ -2,9 +2,7 @@ package tests.bulent;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebElement;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -20,7 +18,6 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.nio.file.Files;
-
 import java.nio.file.Paths;
 import java.time.Duration;
 

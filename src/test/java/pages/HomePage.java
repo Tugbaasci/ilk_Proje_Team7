@@ -1,28 +1,28 @@
 package pages;
 
 
-import org.openqa.selenium.WebDriver;
-
-import org.bouncycastle.jcajce.provider.asymmetric.rsa.ISOSignatureSpi;
-import org.checkerframework.framework.qual.QualifierForLiterals;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+
+import java.util.List;
 
 public class HomePage {
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-//samet
+      //samet
 
 
     // HomePage Contact Butonu
     @FindBy(xpath = "//a[normalize-space()='Contact']")
     public WebElement ContactTabElementi;
 
+    // Homepage Footer Contact US Yazi Elementi
+    @FindBy(xpath = "//h2[@class='heading text-success text-center margin-b-80px mb-5']")
+    public WebElement ContactUSElement;
 
     //HomePage sayfasindaki Logo
     @FindBy(xpath = "//img[@alt='company-logo']")
@@ -68,16 +68,47 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='col-12 text-muted pagination-record ms-sm-3']")
     public WebElement LanguagesResultElement;
 
-    @FindBy(xpath = "//td[normalize-space()='French'])[1]")
-    public WebElement FrenchButton;
-
     // Adminpage ActiveUsers Yazi Elementi
     @FindBy(xpath = "(//h2[@class='fs-1-xxl fw-bolder text-white'])[1]")
-    public WebElement ActiveUsers;
+    public WebElement ActiveUsersElement;
 
     // Adminpage InActiveUsers Yazi Elementi
     @FindBy(xpath = "(//h2[@class='fs-1-xxl fw-bolder text-white'])[3]")
-    public  WebElement InCactiveUsers;
+    public  WebElement InActiveUsers;
+
+    //AdminPage ActiveVCards Elementi
+    @FindBy(xpath = "(//h2[@class='fs-1-xxl fw-bolder text-white'])[2]")
+    public WebElement ActiveVcardsElement;
+
+    //AdminPage InActiveVCards Elementi
+    @FindBy(xpath = "(//h2[@class='fs-1-xxl fw-bolder text-white'])[4]")
+    public WebElement InActiveVcardsElement;
+
+    //AdminPage PlanRatesGraphic Elementi
+    @FindBy(xpath = "//canvas[@id='dashboardPlanPieChart']")
+    public WebElement PlanRatesGraphElement;
+
+    // AdminPage RevenueGraphic Elementi
+    @FindBy(xpath = "//canvas[@id='dashboardIncomeChart']")
+    public WebElement RevenueGraphElement;
+
+    //AdminPage Gunluk Kullanici Elementi
+    @FindBy (xpath = "//button[@id='overview-tab']")
+    public WebElement DailyUsersElement;
+
+    // AdminPage Aylik Kullanici Elementi
+    @FindBy(xpath = "//button[@id='monthData']")
+    public WebElement MonthlyUsersElement;
+
+    // AdminPage Haftalik Kullanici Elementi
+    @FindBy(xpath = "//button[@id='vweekData']")
+    public WebElement WeeklyUseersElement;
+
+    @FindBy(xpath  ="//tbody[@id='dailyReport']")
+    public List<WebElement> UsersTabloElement;
+
+
+
 
 
     @FindBy(xpath = "//a[@class='btn btn-white fs-18 ms-3 d-lg-block d-none']")//home page/header daki sign in butonu
@@ -108,6 +139,7 @@ public class HomePage {
     public WebElement privacyPolicyWE;
     @FindBy(xpath = "//h1[text()='Frequently Asked Questions (FAQ)']")
     public WebElement faqWE;
+
 
 
 

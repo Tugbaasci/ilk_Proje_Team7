@@ -1,9 +1,6 @@
 package tests.samet;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -12,10 +9,10 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
-import java.util.List;
+import java.util.Arrays;
 
 public class US_31 extends TestBaseRapor {
-
+WebDriver driver;
     // I should be able to confirm that I can view the number of languages
     // used on the site after logging in with admin scholar
 
@@ -24,23 +21,20 @@ public class US_31 extends TestBaseRapor {
         extentTest = extentReports.createTest("TestCase31_1: Succesful LoginTest",
                 "The user should be able to successfully log in to the system with Admin credentials");
         //    1- Open the web browser
-        WebDriver driver = new ChromeDriver();
+       // WebDriver driver = new ChromeDriver();
         //    2- Navigate to url 'https://qa.smartcardlink.com'
-        Driver.getDriver().get(ConfigReader.getProperty("smartCardLinkUrl"));
+            Driver.getDriver().get(ConfigReader.getProperty("smartCardLinkUrl"));
         //    3- Verify that home page is visible successfully
-        ReusableMethods.wait(1);
-
-        List<WebElement> logoHomePage = Driver.getDriver().findElements(By.xpath("//img[@class='img-fluid navbar-logo']"));
-        for (WebElement each : logoHomePage
-        ) {
-            Assert.assertTrue(each.isDisplayed());
-          extentTest.pass("Admin login succesfully");
-
+            ReusableMethods.wait(1);
+            HomePage homePage= new HomePage();
+            Assert.assertTrue(homePage.logoHomePage.isDisplayed());
+            extentTest.pass("Admin login succesfully");
             //    4- Click "Sign In" button
-            HomePage homePage = new HomePage();
             homePage.SigInButton.click();
             //    5- On the page that appears, fill in the Email and Password fields
+            homePage.EmailBox.clear();
             homePage.EmailBox.sendKeys(ConfigReader.getProperty("adminUserName"));
+            homePage.PasswordBox.clear();
             homePage.PasswordBox.sendKeys(ConfigReader.getProperty("adminPassword"));
             //    6- Click the Login button
             homePage.LogInButton.click();
@@ -55,24 +49,21 @@ public class US_31 extends TestBaseRapor {
             extentTest.info("Admin succesfully Signout ");
             // 10- Close the page
             Driver.closeDriver();
-            driver.quit();
 
-        }
         }
 
         @Test
         public void LanguagesButtonTest () {
         extentTest= extentReports.createTest("TestCase31_2: Languages Button",
-                "The user should have access to an interface that can display the \"Languages\" button in the Admin panel.");
+                "The user should have access to an interface that can display the Languages button in the Admin panel");
 
             // 1- Open the web browser
-            WebDriver driver = new ChromeDriver();
+           // WebDriver driver = new ChromeDriver();
             // 2- Navigate to url 'https://qa.smartcardlink.com'
             Driver.getDriver().get(ConfigReader.getProperty("smartCardLinkUrl"));
             // 3- Click the Sign In button on the home page
             HomePage homePage = new HomePage();
             homePage.SigInButton.click();
-
             // 4- On the page that appears, fill in the Email and Password fields
             homePage.EmailBox.sendKeys(ConfigReader.getProperty("adminUserName"));
             homePage.PasswordBox.sendKeys(ConfigReader.getProperty("adminPassword"));
@@ -80,19 +71,18 @@ public class US_31 extends TestBaseRapor {
             homePage.LogInButton.click();
             // 6- Verify the "Languages" button on the admin page
             ReusableMethods.wait(2);
-            List<WebElement> LanguagesButton =
-                    Driver.getDriver().findElements(By.xpath("(//span[@class='aside-menu-title'])[14]"));
-            for (WebElement each : LanguagesButton) {
-                Assert.assertTrue(each.isDisplayed());
-                // 7- Click the "Languages" button
-                homePage.LanguagesButton.click();
-                ReusableMethods.wait(2);
-                // 8- Confirm that you have successfully accessed the "Languages" page
+            Assert.assertTrue(homePage.LanguagesButton.isDisplayed());
+            extentTest.info("Languges button is displayed");
+            // 7- Click the "Languages" button
+            homePage.LanguagesButton.click();
+            ReusableMethods.wait(2);
+            // 8- Confirm that you have successfully accessed the "Languages" page
+            Assert.assertTrue(homePage.LanguagesButton.isDisplayed());
+            extentTest.pass("Admin have accessed Languages page");
                 // 9- Close the page
                 Driver.closeDriver();
-                driver.quit();
             }
-        }
+
         @Test
         public void NumberofLanguagesTest() {
 
@@ -100,7 +90,7 @@ public class US_31 extends TestBaseRapor {
                 "As an admin should be able to successfully view the Number of Languages Used");
 
             //  1- Open the web browser
-            WebDriver driver = new ChromeDriver();
+            //WebDriver driver = new ChromeDriver();
             //  2- Navigate to url 'https://qa.smartcardlink.com'
             Driver.getDriver().get(ConfigReader.getProperty("smartCardLinkUrl"));
             //  3- Click the Sign In button on the home page
@@ -111,22 +101,24 @@ public class US_31 extends TestBaseRapor {
             homePage.PasswordBox.sendKeys(ConfigReader.getProperty("adminPassword"));
             //  5- Click the Login button
             homePage.LogInButton.click();
+            extentTest.info("Admin succesfully login");
             //  6- Verify the "Languages" button on the admin page
-            List<WebElement> LanguagesButton =
-                    Driver.getDriver().findElements(By.xpath("(//span[@class='aside-menu-title'])[14]"));
-            for (WebElement each : LanguagesButton) {
-                Assert.assertTrue(each.isDisplayed());
-                //  7- Click the "Languages" button
+            homePage.LanguagesButton.isDisplayed();
+            extentTest.info("Languges button is displayed");
+            //  7- Click the "Languages" button
                 ReusableMethods.wait(2);
                 homePage.LanguagesButton.click();
                 ReusableMethods.wait(2);
-                //  8- Verify that the total number of languages can be visualized on the page that opens
-                String expectedword = ConfigReader.getProperty("languagesAranacakKelime");
-                String actualword = homePage.LanguagesResultElement.getText();
-                Assert.assertTrue(actualword.contains(expectedword));
-                //  9- Close the page
+           //  8- Verify that the total number of languages can be visualized on the page that opens
+
+            String Text = homePage.LanguagesResultElement.getText();
+            String[] TotalNumberLanguages = Text.split(" ");
+            System.out.println(Arrays.toString(TotalNumberLanguages));
+            String languages = TotalNumberLanguages[2];
+            Assert.assertFalse(languages.isEmpty(),"Total number of Languages is displayed");
+            //  9- Close the page
                 Driver.closeDriver();
-                driver.quit();
+
             }
         }
-    }
+

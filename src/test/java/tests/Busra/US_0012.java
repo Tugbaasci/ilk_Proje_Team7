@@ -1,6 +1,5 @@
 package tests.Busra;
 
-import com.beust.ah.A;
 import com.github.javafaker.Faker;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,10 +13,8 @@ public class US_0012 extends TestBaseRapor {
     /*12- Kayıtlı kullaıcı olarak ayarlar kısmında kimlik bilgileri bölümünü görüntüleyebildiğimi,
      ayarları güncelleyebildiğimi doğrulayabimeliyim
 
-    1-	Kayitli bir kullanici olarak “ayarlar” bölümüne erişim sağlayabilmeliyim.
-    2-	Ayarlar kismindaki kimlik bilgileri bolumunu goruntuleyebilmeliyim
-    3-	Ayarlar kisminda guncelleme yapabilmeliyim.
-    4-	Guncellemeyi yapabildigimi dogrulayabilmeliyim */
+   */
+
 
 
 
@@ -30,7 +27,8 @@ public class US_0012 extends TestBaseRapor {
             Faker faker =new Faker();
 
             LoginPage loginPage = new LoginPage();
-            loginPage.signinbutton.click();
+
+            loginPage.signinButton.click();
 
 
             loginPage.emailBox.sendKeys(ConfigReader.getProperty("username"));
@@ -43,11 +41,13 @@ public class US_0012 extends TestBaseRapor {
             loginPage.loginBox.click();
             extentTest.info("User clicks the login button");
 
-            loginPage.ayarlarButonu.click();
-            loginPage.stripeKeyBoslugu.click();
-            loginPage.stripeKeyBoslugu.sendKeys(faker.internet().password());
 
-            loginPage.saveButonu.click();
+            loginPage.settingsButton.click();
+            loginPage.stripeKeyFill.click();
+            loginPage.stripeKeyFill.sendKeys(faker.internet().password());
+
+            loginPage.saveButton.click();
+
             ReusableMethods.wait(2);
             String expectedMessage = "Settings updated successfully.";
             extentTest.info("User updated settings page");
